@@ -24,6 +24,7 @@
 
 #include "HelloWorldScene.h"
 #include "test.h"
+#include "test2.h"
 
 USING_NS_CC;
 
@@ -88,7 +89,8 @@ bool HelloWorld::init()
     // create and initialize a label
 
 	Test test;
-    auto label = Label::createWithTTF("Hello World ~" + test.getString(), "fonts/Marker Felt.ttf", 24);
+	Test2 test2;
+    auto label = Label::createWithTTF("Hello World ~" + test.getString() + "\n" + std::to_string(test2.getInt()), "fonts/Marker Felt.ttf", 24);
     if (label == nullptr)
     {
         problemLoading("'fonts/Marker Felt.ttf'");
