@@ -1,4 +1,4 @@
-# Install script for directory: C:/MyProject/myProject/cocos/MyCocos2/cocos2d/cocos
+# Install script for directory: D:/MyCocos2/MyCocos2/cocos2d/cocos
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/MyProject/myProject/cocos/MyCocos2/build/engine/external/cmake_install.cmake")
+  include("D:/MyCocos2/MyCocos2/build/engine/external/cmake_install.cmake")
 
 endif()
 

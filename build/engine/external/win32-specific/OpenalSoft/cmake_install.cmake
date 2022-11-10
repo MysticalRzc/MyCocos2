@@ -1,4 +1,4 @@
-# Install script for directory: C:/MyProject/myProject/cocos/MyCocos2/cocos2d/external/win32-specific/OpenalSoft
+# Install script for directory: D:/MyCocos2/MyCocos2/cocos2d/external/win32-specific/OpenalSoft
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

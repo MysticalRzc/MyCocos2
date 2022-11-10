@@ -1,4 +1,4 @@
-# Install script for directory: C:/MyProject/myProject/cocos/MyCocos2/cocos2d/external/uv
+# Install script for directory: D:/MyCocos2/MyCocos2/cocos2d/external/uv
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

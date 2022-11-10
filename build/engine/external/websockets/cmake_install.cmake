@@ -1,4 +1,4 @@
-# Install script for directory: C:/MyProject/myProject/cocos/MyCocos2/cocos2d/external/websockets
+# Install script for directory: D:/MyCocos2/MyCocos2/cocos2d/external/websockets
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

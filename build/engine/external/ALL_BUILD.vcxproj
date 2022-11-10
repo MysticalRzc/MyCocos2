@@ -1,57 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
-  </PropertyGroup>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ResolveNugetPackages>false</ResolveNugetPackages>
   </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|win32">
+    <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
-      <Platform>win32</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|win32">
+    <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
-      <Platform>win32</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="MinSizeRel|win32">
+    <ProjectConfiguration Include="MinSizeRel|Win32">
       <Configuration>MinSizeRel</Configuration>
-      <Platform>win32</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="RelWithDebInfo|win32">
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
       <Configuration>RelWithDebInfo</Configuration>
-      <Platform>win32</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D98EEB42-5C09-38FB-81BA-65F0273F7888}</ProjectGuid>
+    <ProjectGuid>{74861C98-787C-3450-B284-56A16D6DB483}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
-    <Platform>win32</Platform>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -62,12 +59,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -77,7 +74,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -87,7 +84,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -97,7 +94,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -108,11 +105,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\MyProject\myProject\cocos\MyCocos2\cocos2d\external\CMakeLists.txt">
-      <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">Building Custom Rule C:/MyProject/myProject/cocos/MyCocos2/cocos2d/external/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">setlocal
-C:\MyProgram\Cmake\bin\cmake.exe -SC:/MyProject/myProject/cocos/MyCocos2 -BC:/MyProject/myProject/cocos/MyCocos2/build --check-stamp-file C:/MyProject/myProject/cocos/MyCocos2/build/engine/external/CMakeFiles/generate.stamp
+    <CustomBuild Include="D:\MyCocos2\MyCocos2\cocos2d\external\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/MyCocos2/MyCocos2/cocos2d/external/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/MyCocos2/MyCocos2 -BD:/MyCocos2/MyCocos2/build --check-stamp-file D:/MyCocos2/MyCocos2/build/engine/external/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -120,12 +116,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|win32'">Building Custom Rule C:/MyProject/myProject/cocos/MyCocos2/cocos2d/external/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|win32'">setlocal
-C:\MyProgram\Cmake\bin\cmake.exe -SC:/MyProject/myProject/cocos/MyCocos2 -BC:/MyProject/myProject/cocos/MyCocos2/build --check-stamp-file C:/MyProject/myProject/cocos/MyCocos2/build/engine/external/CMakeFiles/generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\MyCocos2\MyCocos2\build\engine\external\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/MyCocos2/MyCocos2/cocos2d/external/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/MyCocos2/MyCocos2 -BD:/MyCocos2/MyCocos2/build --check-stamp-file D:/MyCocos2/MyCocos2/build/engine/external/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -133,12 +129,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|win32'">C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">Building Custom Rule C:/MyProject/myProject/cocos/MyCocos2/cocos2d/external/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">setlocal
-C:\MyProgram\Cmake\bin\cmake.exe -SC:/MyProject/myProject/cocos/MyCocos2 -BC:/MyProject/myProject/cocos/MyCocos2/build --check-stamp-file C:/MyProject/myProject/cocos/MyCocos2/build/engine/external/CMakeFiles/generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\MyCocos2\MyCocos2\build\engine\external\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/MyCocos2/MyCocos2/cocos2d/external/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/MyCocos2/MyCocos2 -BD:/MyCocos2/MyCocos2/build --check-stamp-file D:/MyCocos2/MyCocos2/build/engine/external/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -146,12 +142,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">Building Custom Rule C:/MyProject/myProject/cocos/MyCocos2/cocos2d/external/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">setlocal
-C:\MyProgram\Cmake\bin\cmake.exe -SC:/MyProject/myProject/cocos/MyCocos2 -BC:/MyProject/myProject/cocos/MyCocos2/build --check-stamp-file C:/MyProject/myProject/cocos/MyCocos2/build/engine/external/CMakeFiles/generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\MyCocos2\MyCocos2\build\engine\external\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/MyCocos2/MyCocos2/cocos2d/external/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/MyCocos2/MyCocos2 -BD:/MyCocos2/MyCocos2/build --check-stamp-file D:/MyCocos2/MyCocos2/build/engine/external/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -159,62 +155,62 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\MyCocos2\MyCocos2\build\engine\external\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\ZERO_CHECK.vcxproj">
-      <Project>{6C379205-DEEA-3DB6-BCFD-A44FAEC3CBD0}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\ZERO_CHECK.vcxproj">
+      <Project>{99CC65EE-221F-318B-A72C-0859A9B5315B}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\clipper\ext_clipper.vcxproj">
-      <Project>{B2E6E4A4-794B-3BA5-819D-E30928AF4642}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\clipper\ext_clipper.vcxproj">
+      <Project>{FC0BE10F-40CE-3674-923E-F1090CD47BC1}</Project>
       <Name>ext_clipper</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\ConvertUTF\ext_convertUTF.vcxproj">
-      <Project>{06895BAF-8129-3A0F-A28E-6ABCD3155433}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\ConvertUTF\ext_convertUTF.vcxproj">
+      <Project>{0C64B346-2563-3F0D-9101-4B06E331EF41}</Project>
       <Name>ext_convertUTF</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\edtaa3func\ext_edtaa3func.vcxproj">
-      <Project>{5B4FC4FA-B5BC-35C8-AB40-32E843C283C9}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\edtaa3func\ext_edtaa3func.vcxproj">
+      <Project>{9E93337D-C64D-375B-9941-EA2CB5C8C487}</Project>
       <Name>ext_edtaa3func</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\md5\ext_md5.vcxproj">
-      <Project>{396A7D43-3CE4-3E4B-813A-E210216E5E9B}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\md5\ext_md5.vcxproj">
+      <Project>{F99BA9E0-15E6-3672-A871-74563854B65B}</Project>
       <Name>ext_md5</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\poly2tri\ext_poly2tri.vcxproj">
-      <Project>{0205F724-C8E1-377A-9AB7-DBF0A8EC95B8}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\poly2tri\ext_poly2tri.vcxproj">
+      <Project>{B1BFE93C-D940-3127-AC84-BF2C098241BD}</Project>
       <Name>ext_poly2tri</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\recast\ext_recast.vcxproj">
-      <Project>{F4414A4D-4648-30C2-B351-2E5D393B7735}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\recast\ext_recast.vcxproj">
+      <Project>{7EEC1C91-8BD9-3DED-8531-AC03E1F64EAA}</Project>
       <Name>ext_recast</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\tinyxml2\ext_tinyxml2.vcxproj">
-      <Project>{2751459E-C98C-3419-8D12-E1E29B2788EC}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\tinyxml2\ext_tinyxml2.vcxproj">
+      <Project>{AB8B2D52-BD37-3905-9DF4-4B8AB045513C}</Project>
       <Name>ext_tinyxml2</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\unzip\ext_unzip.vcxproj">
-      <Project>{EBE05145-5F0A-381A-9FF2-AC621DFD53DE}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\unzip\ext_unzip.vcxproj">
+      <Project>{4CFB0E4E-6DB1-3BCF-98E5-0F6D175E96E0}</Project>
       <Name>ext_unzip</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\xxhash\ext_xxhash.vcxproj">
-      <Project>{529C4C0A-74B7-337F-830A-7B03AC9B5EB8}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\xxhash\ext_xxhash.vcxproj">
+      <Project>{157764DF-4C28-3FF3-BE27-471AB7196B27}</Project>
       <Name>ext_xxhash</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\xxtea\ext_xxtea.vcxproj">
-      <Project>{61C385B7-EFEE-3891-A392-EB9BA10B9322}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\xxtea\ext_xxtea.vcxproj">
+      <Project>{005DEEE3-D9C2-3DBC-8016-A486AE6D13AE}</Project>
       <Name>ext_xxtea</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\MyProject\myProject\cocos\MyCocos2\build\engine\external\external.vcxproj">
-      <Project>{79F9786A-9C0E-3D92-B743-80B9C35A4261}</Project>
+    <ProjectReference Include="D:\MyCocos2\MyCocos2\build\engine\external\external.vcxproj">
+      <Project>{BDAF5551-671B-3CCE-B105-7F672499CAD9}</Project>
       <Name>external</Name>
     </ProjectReference>
   </ItemGroup>

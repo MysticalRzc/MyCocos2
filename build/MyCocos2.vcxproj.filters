@@ -1,77 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\MyProject\myProject\cocos\MyCocos2\Classes\AppDelegate.cpp">
+    <ClCompile Include="D:\MyCocos2\MyCocos2\Classes\AppDelegate.cpp">
       <Filter>Source Files\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="C:\MyProject\myProject\cocos\MyCocos2\Classes\HelloWorldScene.cpp">
+    <ClCompile Include="D:\MyCocos2\MyCocos2\Classes\HelloWorldScene.cpp">
       <Filter>Source Files\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="C:\MyProject\myProject\cocos\MyCocos2\proj.win32\main.cpp">
+    <ClCompile Include="D:\MyCocos2\MyCocos2\proj.win32\main.cpp">
       <Filter>Source Files\proj.win32</Filter>
     </ClCompile>
-    <ClCompile Include="C:\MyProject\myProject\cocos\MyCocos2\cocos2d\cocos\precheader.cpp">
+    <ClCompile Include="D:\MyCocos2\MyCocos2\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\Classes\AppDelegate.h">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\Classes\AppDelegate.h">
       <Filter>Source Files\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\Classes\HelloWorldScene.h">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\Classes\HelloWorldScene.h">
       <Filter>Source Files\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\proj.win32\main.h">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\proj.win32\main.h">
       <Filter>Source Files\proj.win32</Filter>
     </ClInclude>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\proj.win32\resource.h">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\proj.win32\resource.h">
       <Filter>Source Files\proj.win32</Filter>
     </ClInclude>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\Resources\CloseNormal.png">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\Resources\CloseNormal.png">
       <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\Resources\CloseSelected.png">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\Resources\CloseSelected.png">
       <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\Resources\HelloWorld.png">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\Resources\HelloWorld.png">
       <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\Resources\fonts\Marker Felt.ttf">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\Resources\fonts\Marker Felt.ttf">
       <Filter>Resources\fonts</Filter>
     </ClInclude>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\Resources\fonts\arial.ttf">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\Resources\fonts\arial.ttf">
       <Filter>Resources\fonts</Filter>
     </ClInclude>
-    <ClInclude Include="C:\MyProject\myProject\cocos\MyCocos2\Resources\res\.gitkeep">
+    <ClInclude Include="D:\MyCocos2\MyCocos2\Resources\res\.gitkeep">
       <Filter>Resources\res</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\MyProject\myProject\cocos\MyCocos2\CMakeLists.txt" />
+    <CustomBuild Include="D:\MyCocos2\MyCocos2\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="C:\MyProject\myProject\cocos\MyCocos2\proj.win32\game.rc">
+    <ResourceCompile Include="D:\MyCocos2\MyCocos2\proj.win32\game.rc">
       <Filter>Source Files\proj.win32</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resources">
-      <UniqueIdentifier>{C16FCF66-BF24-3B89-A533-7BF7D3BADCB0}</UniqueIdentifier>
+      <UniqueIdentifier>{9CBF2145-28A6-3C55-9277-A9DF46F518C2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\fonts">
-      <UniqueIdentifier>{2542637D-558D-3386-BEDE-6C38FBE8FCDA}</UniqueIdentifier>
+      <UniqueIdentifier>{0C2B83A5-E891-3B79-BED4-50CB5F794443}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\res">
-      <UniqueIdentifier>{D1F54381-E53C-32E8-BA93-EEB1AEA0C016}</UniqueIdentifier>
+      <UniqueIdentifier>{D0699B71-03E0-3FED-92B9-19B2F4325DCA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{478218E3-B52A-3FFB-854C-02B18FB538DF}</UniqueIdentifier>
+      <UniqueIdentifier>{E9490D28-CFF5-3CEA-AE4A-5AE61D076265}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Classes">
-      <UniqueIdentifier>{09CB3E38-79AD-3AE5-AAAD-2A3717D3BF8C}</UniqueIdentifier>
+      <UniqueIdentifier>{89C4C424-3560-3F5F-8CDD-8A9255BE895E}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\proj.win32">
-      <UniqueIdentifier>{C1F871E1-43DE-3A7E-9B72-28A3F410DB1D}</UniqueIdentifier>
+      <UniqueIdentifier>{BFE52334-047F-36B0-B3B9-E221F58DFEB4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
