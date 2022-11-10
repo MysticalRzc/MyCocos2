@@ -23,6 +23,7 @@
  ****************************************************************************/
 
 #include "HelloWorldScene.h"
+#include "test.h"
 
 USING_NS_CC;
 
@@ -41,6 +42,7 @@ static void problemLoading(const char* filename)
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
+	
     //////////////////////////////
     // 1. super init first
     if ( !Scene::init() )
@@ -85,7 +87,8 @@ bool HelloWorld::init()
     // add a label shows "Hello World"
     // create and initialize a label
 
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
+	Test test;
+    auto label = Label::createWithTTF("Hello World ~" + test.getString(), "fonts/Marker Felt.ttf", 24);
     if (label == nullptr)
     {
         problemLoading("'fonts/Marker Felt.ttf'");
