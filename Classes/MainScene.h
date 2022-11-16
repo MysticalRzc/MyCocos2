@@ -25,7 +25,7 @@
 #ifndef __HELLOWORLD_SCENE_H__
 #define __HELLOWORLD_SCENE_H__
 
-#include "MyScene2.h"
+//#include "MyScene2.h"
 #include "cocos2d.h"
 
 class MainScene : public cocos2d::Scene
