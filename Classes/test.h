@@ -5,5 +5,5 @@
 class Test
 {
 public:
-	std::string getString();
+    std::string getString();
 };
