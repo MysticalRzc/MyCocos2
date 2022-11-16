@@ -78,6 +78,8 @@ bool MainScene::init() {
 
 
 void MainScene::menuCloseCallback(Ref *pSender) {
-    auto scene = MyScene2::createScene();
+    //auto scene = MyScene2::createScene();
+    auto scene = createScene();
+
     Director::getInstance()->runWithScene(scene);
 }
