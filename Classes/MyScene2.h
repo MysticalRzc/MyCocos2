@@ -27,18 +27,18 @@
 
 #include "cocos2d.h"
 
-class HelloWorld : public cocos2d::Scene
+class MyScene2 : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
 
-    virtual bool init();
+    bool init() override;
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(MyScene2);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
