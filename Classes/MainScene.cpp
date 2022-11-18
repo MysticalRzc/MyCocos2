@@ -23,7 +23,7 @@
  ****************************************************************************/
 
 #include "MainScene.h"
-#include "MyScene2.h"
+#include "scene/MyScene2.h"
 
 
 USING_NS_CC;
@@ -81,5 +81,6 @@ void MainScene::menuCloseCallback(Ref *pSender) {
     auto scene = MyScene2::createScene();
     //auto scene = createScene();
 
-    Director::getInstance()->runWithScene(scene);
+    //Director::getInstance()->runWithScene(scene);
+    Director::getInstance()->replaceScene(scene);
 }
