@@ -22,25 +22,23 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#pragma once
 
 #include "cocos2d.h"
 
-
-class MainScene : public cocos2d::Scene
+class FinishScene : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
 
-    virtual bool init();
+    bool init() override;
+
+    void closeCallback(cocos2d::Ref* pSender);
+
+    void backToMainCallback(cocos2d::Ref* pSender);
     
-    void menuCloseCallback(cocos2d::Ref* pSender);
-    void entranceCallback(cocos2d::Ref* pSender);
-    void exit(cocos2d::Ref* pSender);
-
-
-    CREATE_FUNC(MainScene);
+    // implement the "static create()" method manually
+    CREATE_FUNC(FinishScene);
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+

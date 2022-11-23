@@ -23,7 +23,7 @@
  ****************************************************************************/
 
 #include "MainScene.h"
-#include "scene/MyScene2.h"
+#include "scene/Level1Scene.h"
 
 
 USING_NS_CC;
@@ -47,24 +47,6 @@ bool MainScene::init() {
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    auto closeItem = MenuItemImage::create(
-            "img/entrance.png",
-            "img/entranceSelected.png",
-            CC_CALLBACK_1(MainScene::menuCloseCallback, this));
-
-    if (closeItem == nullptr ||
-        closeItem->getContentSize().width <= 0 ||
-        closeItem->getContentSize().height <= 0) {
-        problemLoading("'img/entrance.png' and 'img/entranceSelected.png'");
-    } else {
-        float x = origin.x + visibleSize.width - closeItem->getContentSize().width/2 - 30;
-        float y = origin.y + closeItem->getContentSize().height/2  + 30;
-        closeItem->setPosition(Vec2(x, y));
-    }
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
-
     auto label = Label::createWithTTF("Welcome MyCocos ~\n", "fonts/Marker Felt.ttf", 36);
     if (label == nullptr) {
         problemLoading("'fonts/Marker Felt.ttf'");
@@ -73,14 +55,40 @@ bool MainScene::init() {
                 Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - label->getContentSize().height));
         this->addChild(label, 1);
     }
+
+    Vector<MenuItem *> menuItems;
+    auto entrance = MenuItemLabel::create(Label::createWithTTF("Entrance Game\n", "fonts/Marker Felt.ttf", 36),
+                                          CC_CALLBACK_1(MainScene::entranceCallback, this));
+    auto exit = MenuItemLabel::create(Label::createWithTTF("Exit\n", "fonts/Marker Felt.ttf", 36),
+                                      CC_CALLBACK_1(MainScene::exit, this));
+
+    menuItems.pushBack(entrance);
+    menuItems.pushBack(exit);
+    auto myMenu = Menu::createWithArray(menuItems);
+    myMenu->alignItemsVerticallyWithPadding(5);
+    myMenu->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    this->addChild(myMenu, 1);
+
     return true;
 }
 
 
 void MainScene::menuCloseCallback(Ref *pSender) {
-    auto scene = MyScene2::createScene();
+    auto scene = Level1Scene::createScene();
     //auto scene = createScene();
 
     //Director::getInstance()->runWithScene(scene);
     Director::getInstance()->replaceScene(scene);
+}
+
+void MainScene::entranceCallback(Ref *pSender) {
+    auto scene = Level1Scene::createScene();
+    //auto scene = createScene();
+
+    //Director::getInstance()->runWithScene(scene);
+    Director::getInstance()->replaceScene(scene);
+}
+
+void MainScene::exit(Ref *pSender) {
+    Director::getInstance()->end();
 }

@@ -26,7 +26,7 @@
 
 #include "cocos2d.h"
 
-class MyScene2 : public cocos2d::Scene
+class Level1Scene : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
@@ -37,7 +37,7 @@ public:
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
-    CREATE_FUNC(MyScene2);
+    CREATE_FUNC(Level1Scene);
 };
 
 

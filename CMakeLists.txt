@@ -58,12 +58,14 @@ endif ()
 list(APPEND GAME_SOURCE
         Classes/AppDelegate.cpp
         Classes/MainScene.cpp
-        Classes/scene/MyScene2.cpp
+        Classes/scene/Level1Scene.cpp
+        Classes/scene/FinishScene.cpp
         )
 list(APPEND GAME_HEADER
         Classes/AppDelegate.h
         Classes/MainScene.h
-        Classes/scene/MyScene2.h
+        Classes/scene/Level1Scene.h
+        Classes/scene/FinishScene.h
         )
 
 if (ANDROID)
