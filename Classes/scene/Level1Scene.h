@@ -26,16 +26,22 @@
 
 #include "cocos2d.h"
 
+USING_NS_CC;
+
 class Level1Scene : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
-
+    cocos2d::Sprite* hook = nullptr;
     bool init() override;
-    
+    int rotation = 0;
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
-    
+    bool onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
+    bool onTouchEnded(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
+    void gogogo();
+    void updateCustom(float dt);
+
     // implement the "static create()" method manually
     CREATE_FUNC(Level1Scene);
 };
