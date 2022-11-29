@@ -347,18 +347,6 @@ LayerColor* LayerColor::create()
     return ret;
 }
 
-LayerColor * LayerColor::create(const Color4B& color, float width, float height)
-{
-    LayerColor * layer = new (std::nothrow) LayerColor();
-    if( layer && layer->initWithColor(color,width,height))
-    {
-        layer->autorelease();
-        return layer;
-    }
-    CC_SAFE_DELETE(layer);
-    return nullptr;
-}
-
 LayerColor * LayerColor::create(const Color4B& color)
 {
     LayerColor * layer = new (std::nothrow) LayerColor();
@@ -370,6 +358,18 @@ LayerColor * LayerColor::create(const Color4B& color)
     CC_SAFE_DELETE(layer);
     return nullptr;
 }
+
+    LayerColor * LayerColor::create(const Color4B& color, float width, float height)
+    {
+        LayerColor * layer = new (std::nothrow) LayerColor();
+        if( layer && layer->initWithColor(color,width,height))
+        {
+            layer->autorelease();
+            return layer;
+        }
+        CC_SAFE_DELETE(layer);
+        return nullptr;
+    }
 
 bool LayerColor::init()
 {

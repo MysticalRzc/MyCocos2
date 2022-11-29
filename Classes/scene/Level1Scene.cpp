@@ -1,7 +1,11 @@
+#include <ui/CocosGUI.h>
 #include "Level1Scene.h"
 #include "FinishScene.h"
+#include "../layer/BeginGameLayer.h"
+#include "math.h"
 
 USING_NS_CC;
+using namespace cocos2d::ui;
 
 Scene *Level1Scene::createScene() {
     return Level1Scene::create();
@@ -20,6 +24,19 @@ bool Level1Scene::init() {
     }
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+//    Image image = new Image();
+//    Image imag2 =image->initWithImageFile("img/kfc.png");
+//
+//    Texture2D *text = Texture2D::initWithImage();
+    auto bgcollor = LayerColor::create(Color4B(10,10,0,22));
+    this->addChild(bgcollor);
+    //添加背景色
+//    Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("img/kfc.png");
+//    auto bgTexture = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width, visibleSize.height));
+//    bgTexture->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2));
+
+
     // 添加屏幕点击事件监听
     auto dispatcher = Director::getInstance()->getEventDispatcher();
     auto myListener = EventListenerTouchOneByOne::create();
@@ -38,7 +55,7 @@ bool Level1Scene::init() {
     hook->setRotation(rotation);
     hook->setAnchorPoint(Vec2(hook->getScaleX() / 2, hook->getScaleY()));
     goldMan->addChild(hook, 0);
-    this->addChild(goldMan);
+    this->addChild(goldMan,0);
 
     //t
     auto closeItem = MenuItemImage::create(
@@ -52,50 +69,34 @@ bool Level1Scene::init() {
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
 
-//    this->scheduleUpdate();
-    this->schedule(SEL_SCHEDULE(&Level1Scene::updateCustom), 0.01f, kRepeatForever, 0);
+    this->schedule(SEL_SCHEDULE(&Level1Scene::swing), 0.01f, kRepeatForever, 0);
+
+    auto layer = LayerColor::create();
+
     return true;
 }
 
-void addTitle() {
-
-}
-
-void Level1Scene::gogogo() {
-    rotation += 5;
-    if (rotation > 90) {
-        rotation = rotation - 70;
+void Level1Scene::swing(float dt) {
+    rotation += swingSpeed;
+    if (abs(rotation) > 80) {
+        swingSpeed = -swingSpeed;
     }
-    hook->setRotation(rotation - 50);
-}
-
-void Level1Scene::updateCustom(float dt) {
-    rotation += 1;
-    if (rotation > 90) {
-        rotation = rotation - 70;
-    }
-    hook->setRotation(rotation - 50);
+    hook->setRotation(rotation);
 }
 
 bool Level1Scene::onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
-    rotation += 5;
-    if (rotation > 90) {
-        rotation = rotation - 70;
-    }
-    hook->setRotation(rotation - 50);
+    rotation = -rotation;
+    hook->setRotation(rotation);
     return true;
 }
 
 bool Level1Scene::onTouchEnded(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
-    rotation += 5;
-    if (rotation > 90) {
-        rotation = rotation - 70;
-    }
-    hook->setRotation(rotation - 50);
+    rotation = -rotation;
+    hook->setRotation(rotation);
     return true;
 }
 
 void Level1Scene::menuCloseCallback(Ref *pSender) {
     auto scene = FinishScene::createScene();
-    Director::getInstance()->replaceScene(scene);
+    Director::getInstance()->replaceScene(TransitionPageTurn::create(0.5,scene,true));
 }

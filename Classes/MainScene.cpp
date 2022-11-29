@@ -43,7 +43,8 @@ bool MainScene::init() {
     if (!Scene::init()) {
         return false;
     }
-
+//    CC_BREAK_IF(!)
+    log("mainScene init");
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -75,17 +76,11 @@ bool MainScene::init() {
 
 void MainScene::menuCloseCallback(Ref *pSender) {
     auto scene = Level1Scene::createScene();
-    //auto scene = createScene();
-
-    //Director::getInstance()->runWithScene(scene);
     Director::getInstance()->replaceScene(scene);
 }
 
 void MainScene::entranceCallback(Ref *pSender) {
     auto scene = Level1Scene::createScene();
-    //auto scene = createScene();
-
-    //Director::getInstance()->runWithScene(scene);
     Director::getInstance()->replaceScene(scene);
 }
 
