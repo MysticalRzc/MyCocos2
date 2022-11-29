@@ -36,6 +36,10 @@ bool Level1Scene::init() {
 //    auto bgTexture = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width, visibleSize.height));
 //    bgTexture->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2));
 
+    //添加图层
+    auto layer = LayerColor::create();
+    layer->initWithColor(Color4B(0xFF, 0x00, 0x00, 0x80));
+    this->addChild(layer,0);
 
     // 添加屏幕点击事件监听
     auto dispatcher = Director::getInstance()->getEventDispatcher();
@@ -55,7 +59,7 @@ bool Level1Scene::init() {
     hook->setRotation(rotation);
     hook->setAnchorPoint(Vec2(hook->getScaleX() / 2, hook->getScaleY()));
     goldMan->addChild(hook, 0);
-    this->addChild(goldMan,0);
+    layer->addChild(goldMan,0);
 
     //t
     auto closeItem = MenuItemImage::create(
@@ -71,7 +75,6 @@ bool Level1Scene::init() {
 
     this->schedule(SEL_SCHEDULE(&Level1Scene::swing), 0.01f, kRepeatForever, 0);
 
-    auto layer = LayerColor::create();
 
     return true;
 }
