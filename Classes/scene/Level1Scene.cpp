@@ -39,6 +39,10 @@ bool Level1Scene::init() {
     //添加图层
     auto layer = LayerColor::create();
     layer->initWithColor(Color4B(0xFF, 0x00, 0x00, 0x80));
+    GLenum src = GL_ZERO;
+    GLenum dst = GL_ONE_MINUS_SRC_COLOR;
+    BlendFunc a = {backend::BlendFactor::ZERO,backend::BlendFactor::DST_COLOR};
+
     this->addChild(layer,0);
 
     // 添加屏幕点击事件监听
@@ -60,7 +64,8 @@ bool Level1Scene::init() {
     hook->setAnchorPoint(Vec2(hook->getScaleX() / 2, hook->getScaleY()));
     goldMan->addChild(hook, 0);
     layer->addChild(goldMan,0);
-
+    //颜色混合
+    goldMan->setBlendFunc(BlendFunc::ADDITIVE);
     //t
     auto closeItem = MenuItemImage::create(
             "img/entrance.png",
