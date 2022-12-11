@@ -124,7 +124,7 @@ endif ()
 set(all_code_files
         ${GAME_HEADER}
         ${GAME_SOURCE}
-        Classes/layer/BeginGameLayer.cpp Classes/layer/BeginGameLayer.h)
+        Classes/layer/BackGroundLayer.cpp Classes/layer/BackGroundLayer.h Classes/layer/MainLayer.cpp Classes/layer/MainLayer.h Classes/layer/MenuLayer.cpp Classes/layer/MenuLayer.h)
 if (NOT ANDROID)
     add_executable(${APP_NAME} ${all_code_files})
 else ()

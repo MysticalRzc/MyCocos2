@@ -25,19 +25,26 @@
 #pragma once
 
 #include "cocos2d.h"
+#include "../layer/BackGroundLayer.h"
+#include "../layer/MainLayer.h"
+#include "../layer/MenuLayer.h"
 
 USING_NS_CC;
 
 class Level1Scene : public cocos2d::Scene {
 public:
-    static cocos2d::Scene *createScene();
+    CREATE_FUNC(Level1Scene);
 
-    cocos2d::Sprite *hook = nullptr;
+    static cocos2d::Scene *createScene();
 
     bool init() override;
 
-    int rotation = 80;
-    int swingSpeed = 1;
+private:
+    //图层组件
+    BackGroundLayer *backGroundLayer = nullptr;
+    MainLayer *mainLayer = nullptr;
+    MenuLayer *menuLayer = nullptr;
+    LayerMultiplex *layerMutiplex = nullptr;
 
     // a selector callback
     void menuCloseCallback(cocos2d::Ref *pSender);
@@ -45,11 +52,6 @@ public:
     bool onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent);
 
     bool onTouchEnded(cocos2d::Touch *pTouch, cocos2d::Event *pEvent);
-
-    void swing(float dt);
-
-    // implement the "static create()" method manually
-    CREATE_FUNC(Level1Scene);
 };
 
 

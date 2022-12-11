@@ -3,12 +3,14 @@
 USING_NS_CC;
 
 
-class BeginGameLayer : public Layer {
+class BackGroundLayer : public LayerColor {
 
 public :
-    CREATE_FUNC(BeginGameLayer);
+    CREATE_FUNC(BackGroundLayer);
 
-    virtual bool init();
+    bool init() override;
+    int redColor = 0;
+    void changeColor();
 
 //    virtual bool onTouchBegan(Touch * touch, Event * unused_event);
 //
