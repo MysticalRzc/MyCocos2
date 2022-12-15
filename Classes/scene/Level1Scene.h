@@ -45,9 +45,12 @@ private:
     MainLayer *mainLayer = nullptr;
     MenuLayer *menuLayer = nullptr;
     LayerMultiplex *layerMutiplex = nullptr;
+    int layerIdx = 0;
 
     // a selector callback
     void menuCloseCallback(cocos2d::Ref *pSender);
+
+    void running(float dt);
 
     bool onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent);
 

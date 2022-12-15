@@ -44,23 +44,27 @@ bool Level1Scene::init() {
     myListener->onTouchEnded = std::bind(&Level1Scene::onTouchEnded, this, std::placeholders::_1,
                                          std::placeholders::_2);
     dispatcher->addEventListenerWithSceneGraphPriority(myListener, this);
+    this->schedule(SEL_SCHEDULE(&Level1Scene::running), 0.01f, kRepeatForever, 0);
 
     return true;
 }
 
 bool Level1Scene::onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
     backGroundLayer->changeColor();
-    layerMutiplex->switchTo(1);
     return true;
 }
 
 bool Level1Scene::onTouchEnded(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
-    layerMutiplex->switchTo(0);
-    mainLayer = MainLayer::create();
+    layerMutiplex->switchTo(layerIdx % 2);
+    layerIdx++;
     return true;
 }
 
 void Level1Scene::menuCloseCallback(Ref *pSender) {
     auto scene = FinishScene::createScene();
     Director::getInstance()->replaceScene(TransitionPageTurn::create(0.5, scene, true));
+}
+
+void Level1Scene::running(float dt) {
+    mainLayer->running(0);
 }

@@ -24,7 +24,6 @@ bool MainLayer::init() {
 
     goldMan->addChild(hook, 0);
     this->addChild(goldMan, 0);
-    this->schedule(SEL_SCHEDULE(&MainLayer::running), 0.01f, kRepeatForever, 0);
 
     return true;
 }
