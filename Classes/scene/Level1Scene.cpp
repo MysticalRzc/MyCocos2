@@ -55,8 +55,8 @@ bool Level1Scene::onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
 }
 
 bool Level1Scene::onTouchEnded(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
-    layerMutiplex->switchTo(layerIdx % 2);
-    layerIdx++;
+//    layerMutiplex->switchTo(layerIdx % 2);
+//    layerIdx++;
     return true;
 }
 

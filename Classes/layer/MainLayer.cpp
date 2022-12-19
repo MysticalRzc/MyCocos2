@@ -3,6 +3,7 @@
 //
 
 #include "MainLayer.h"
+#include "../utils/DrawUtils.h"
 
 USING_NS_CC;
 
@@ -22,8 +23,16 @@ bool MainLayer::init() {
     //颜色混合
     hook->setBlendFunc(BlendFunc::ADDITIVE);
 
-    goldMan->addChild(hook, 0);
-    this->addChild(goldMan, 0);
+    auto draw = DrawUtils::create();
+    this->addChild(draw);
+    draw->drawLineR();
+
+//    goldMan->addChild(hook, 0);
+//    this->addChild(goldMan, 0);
+
+//need delete
+    hook->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 100));
+    this->addChild(hook, 0);
 
     return true;
 }

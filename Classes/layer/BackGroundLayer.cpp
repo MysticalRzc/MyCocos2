@@ -9,11 +9,11 @@ USING_NS_CC;
 bool BackGroundLayer::init() {
     if (!Layer::init()) return false;
     log("layer init success");
-    this->setColor(Color3B(redColor, 162, 77));
+    this->setColor(Color3B(redColor, 0, 0));
     return true;
 }
 
 void BackGroundLayer::changeColor() {
-    redColor += 10;
-    this->setColor(Color3B(redColor, 162, 77));
+    redColor += 1;
+    this->setColor(Color3B(redColor, 0, 0));
 }
