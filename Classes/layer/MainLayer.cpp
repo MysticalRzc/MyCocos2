@@ -14,6 +14,7 @@ bool MainLayer::init() {
     log("Main layer init success");
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    hookOrigin = Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 100);
 
     //添加挖矿老人
     auto goldMan = Sprite::create("img/goldMan.png");
@@ -29,7 +30,7 @@ bool MainLayer::init() {
 //    this->addChild(goldMan, 0);
 
 //need delete
-    hook->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 100));
+    hook->setPosition(hookOrigin);
     this->addChild(hook, 0);
     draw = DrawUtils::create();
     this->addChild(draw);
@@ -38,17 +39,38 @@ bool MainLayer::init() {
 
 void MainLayer::swing(float df) {
     log("swing is active");
-    rotation += swingSpeed;
-    if (abs(rotation) > 80) {
-        swingSpeed = -swingSpeed;
-    }
-    hook->setRotation(rotation);
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    draw->drawLineR(hook->getPosition(),(rotation + 180) * PI_DIV_180,100);
+    draw->drawLineR(hook->getPosition(), (rotation + 180) * PI_DIV_180, 100);
+    if (hookStatus == 0) {
+        rotation += swingSpeed;
+        if (abs(rotation) > 80) {
+            swingSpeed = -swingSpeed;
+        }
+        hook->setRotation(rotation);
+    } else if (hookStatus == 1) {
+        if (ropeLength > 100) {
+            hookStatus = 2;
+        }
+        auto angle = rotation * PI_DIV_180;
+        ropeLength += 1;
+        hook->setPosition(Vec2(hookOrigin.x + sin(angle) * ropeLength, hookOrigin.y + cos(angle) * ropeLength));
+    }else if(hookStatus == 2){
+        if(ropeLength < 10){
+            hookStatus = 1;
+        }
+        auto angle = rotation * PI_DIV_180;
+        ropeLength -= 1;
+        hook->setPosition(Vec2(hookOrigin.x + sin(angle) * ropeLength, hookOrigin.y + cos(angle) * ropeLength));
+    }
+
 }
 
 void MainLayer::swingRope(float dt) {
 
+}
+
+void MainLayer::hookAction() {
+    hookStatus = (hookStatus + 1) % 3;
 }
 
