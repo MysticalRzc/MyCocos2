@@ -44,7 +44,7 @@ bool Level1Scene::init() {
     myListener->onTouchEnded = std::bind(&Level1Scene::onTouchEnded, this, std::placeholders::_1,
                                          std::placeholders::_2);
     dispatcher->addEventListenerWithSceneGraphPriority(myListener, this);
-    this->schedule(SEL_SCHEDULE(&Level1Scene::running), 0.01f, kRepeatForever, 0);
+    this->schedule(SEL_SCHEDULE(&Level1Scene::running), 0.5f, kRepeatForever, 0);
 
     return true;
 }
@@ -66,5 +66,5 @@ void Level1Scene::menuCloseCallback(Ref *pSender) {
 }
 
 void Level1Scene::running(float dt) {
-    mainLayer->running(0);
+    mainLayer->swing(0);
 }

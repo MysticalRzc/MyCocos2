@@ -2,6 +2,7 @@
 // Created by Administrator on 2022/12/10.
 //
 #include "cocos2d.h"
+#include "../utils/DrawUtils.h"
 
 USING_NS_CC;
 
@@ -11,10 +12,11 @@ public :
     CREATE_FUNC(MainLayer);
 
     bool init() override;
-    int rotation = 80;
+    int rotation = 0;
     int swingSpeed = 1;
     cocos2d::Sprite *hook = nullptr;
+    DrawUtils *draw = nullptr;
 
-
-    void running(float dt);
+    void swing(float dt);
+    void swingRope(float dt);
 };

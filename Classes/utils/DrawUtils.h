@@ -15,5 +15,5 @@ public:
 
     bool init() override;
 
-    void drawLineR();
+    void drawLineR(Vec2 origin,float angle,int length);
 };

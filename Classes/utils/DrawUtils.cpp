@@ -1,7 +1,7 @@
 //
 // Created by Administrator on 2022/12/19.
 //
-
+#include "math.h"
 #include "DrawUtils.h"
 
 DrawUtils *DrawUtils::createUtils() {
@@ -15,10 +15,10 @@ bool DrawUtils::init() {
     return true;
 }
 
-void DrawUtils::drawLineR() {
-    auto begin = Vec2(0,0);
-    auto end = Vec2(1000,100);
-    auto color = Color4F(0.3,0.3,0.3,1);
+void DrawUtils::drawLineR(Vec2 origin,float angle,int length) {
+    this->clear();
+    auto end = Vec2(origin.x + sin(angle) * length,origin.y + cos(angle) * length);
 
-    this->drawLine(begin,end,color);
+    auto color4b = Color4B(255,0,0,255);
+    this->drawLine(origin,end,Color4F(color4b));
 }

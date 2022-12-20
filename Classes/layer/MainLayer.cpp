@@ -3,9 +3,11 @@
 //
 
 #include "MainLayer.h"
-#include "../utils/DrawUtils.h"
 
 USING_NS_CC;
+
+#define PI (3.14159265358979323846)
+#define PI_DIV_180 (0.017453292519943296)
 
 bool MainLayer::init() {
     if (!Layer::init()) return false;
@@ -23,26 +25,30 @@ bool MainLayer::init() {
     //颜色混合
     hook->setBlendFunc(BlendFunc::ADDITIVE);
 
-    auto draw = DrawUtils::create();
-    this->addChild(draw);
-    draw->drawLineR();
-
 //    goldMan->addChild(hook, 0);
 //    this->addChild(goldMan, 0);
 
 //need delete
     hook->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 100));
     this->addChild(hook, 0);
-
+    draw = DrawUtils::create();
+    this->addChild(draw);
     return true;
 }
 
-void MainLayer::running(float df) {
-    log("running is active");
+void MainLayer::swing(float df) {
+    log("swing is active");
     rotation += swingSpeed;
     if (abs(rotation) > 80) {
         swingSpeed = -swingSpeed;
     }
     hook->setRotation(rotation);
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    draw->drawLineR(hook->getPosition(),(rotation + 180) * PI_DIV_180,100);
+}
+
+void MainLayer::swingRope(float dt) {
+
 }
 
