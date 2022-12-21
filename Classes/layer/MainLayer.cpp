@@ -41,7 +41,7 @@ void MainLayer::swing(float df) {
     log("swing is active");
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    draw->drawLineR(hook->getPosition(), (rotation + 180) * PI_DIV_180, 100);
+    draw->drawLineR(hookOrigin, (rotation + 180) * PI_DIV_180, ropeLength);
     if (hookStatus == 0) {
         rotation += swingSpeed;
         if (abs(rotation) > 80) {
@@ -49,11 +49,11 @@ void MainLayer::swing(float df) {
         }
         hook->setRotation(rotation);
     } else if (hookStatus == 1) {
-        if (ropeLength > 1000) {
+        if (ropeLength > 500) {
             hookStatus = 2;
         }
         auto angle = rotation * PI_DIV_180;
-        ropeLength += 1;
+        ropeLength += 4;
         hook->setPosition(Vec2(hookOrigin.x - sin(angle) * ropeLength, hookOrigin.y - cos(angle) * ropeLength));
     }else if(hookStatus == 2){
         if(ropeLength < 10){
@@ -61,7 +61,7 @@ void MainLayer::swing(float df) {
             hook->setPosition(hookOrigin);
         }
         auto angle = rotation * PI_DIV_180;
-        ropeLength -= 1;
+        ropeLength -= 10;
         hook->setPosition(Vec2(hookOrigin.x - sin(angle) * ropeLength, hookOrigin.y - cos(angle) * ropeLength));
     }
 }
