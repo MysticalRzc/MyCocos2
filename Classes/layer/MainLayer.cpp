@@ -49,28 +49,27 @@ void MainLayer::swing(float df) {
         }
         hook->setRotation(rotation);
     } else if (hookStatus == 1) {
-        if (ropeLength > 100) {
+        if (ropeLength > 1000) {
             hookStatus = 2;
         }
         auto angle = rotation * PI_DIV_180;
         ropeLength += 1;
-        hook->setPosition(Vec2(hookOrigin.x + sin(angle) * ropeLength, hookOrigin.y + cos(angle) * ropeLength));
+        hook->setPosition(Vec2(hookOrigin.x - sin(angle) * ropeLength, hookOrigin.y - cos(angle) * ropeLength));
     }else if(hookStatus == 2){
         if(ropeLength < 10){
-            hookStatus = 1;
+            hookStatus = 0;
+            hook->setPosition(hookOrigin);
         }
         auto angle = rotation * PI_DIV_180;
         ropeLength -= 1;
-        hook->setPosition(Vec2(hookOrigin.x + sin(angle) * ropeLength, hookOrigin.y + cos(angle) * ropeLength));
+        hook->setPosition(Vec2(hookOrigin.x - sin(angle) * ropeLength, hookOrigin.y - cos(angle) * ropeLength));
     }
-
-}
-
-void MainLayer::swingRope(float dt) {
-
 }
 
 void MainLayer::hookAction() {
     hookStatus = (hookStatus + 1) % 3;
+    if(hookStatus == 0){
+        hook->setPosition(hookOrigin);
+    }
 }
 

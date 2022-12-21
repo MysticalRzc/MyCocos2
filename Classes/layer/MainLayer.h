@@ -17,14 +17,12 @@ public :
     int ropeLength = 0;
     int rotation = 0;
     int swingSpeed = 1;
-    Vec2 hookOrigin = nullptr;
+    Vec2 hookOrigin = Vec2(0,0);
 
     cocos2d::Sprite *hook = nullptr;
     DrawUtils *draw = nullptr;
 
     void swing(float dt);
-
-    void swingRope(float dt);
 
     void hookAction();
 };
