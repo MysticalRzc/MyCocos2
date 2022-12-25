@@ -58,13 +58,13 @@ endif ()
 list(APPEND GAME_SOURCE
         Classes/AppDelegate.cpp
         Classes/MainScene.cpp
-        Classes/scene/Level1Scene.cpp
+        Classes/scene/GameScene.cpp
         Classes/scene/FinishScene.cpp
         )
 list(APPEND GAME_HEADER
         Classes/AppDelegate.h
         Classes/MainScene.h
-        Classes/scene/Level1Scene.h
+        Classes/scene/GameScene.h
         Classes/scene/FinishScene.h
         )
 
@@ -124,7 +124,7 @@ endif ()
 set(all_code_files
         ${GAME_HEADER}
         ${GAME_SOURCE}
-        Classes/layer/BackGroundLayer.cpp Classes/layer/BackGroundLayer.h Classes/layer/MainLayer.cpp Classes/layer/MainLayer.h Classes/layer/MenuLayer.cpp Classes/layer/MenuLayer.h Classes/utils/DrawUtils.cpp Classes/utils/DrawUtils.h)
+        Classes/layer/BackGroundLayer.cpp Classes/layer/BackGroundLayer.h Classes/layer/MainLayer.cpp Classes/layer/MainLayer.h Classes/layer/MenuLayer.cpp Classes/layer/MenuLayer.h Classes/utils/DrawUtils.cpp Classes/utils/DrawUtils.h Classes/sprite/CatchSprite.cpp Classes/sprite/CatchSprite.h)
 if (NOT ANDROID)
     add_executable(${APP_NAME} ${all_code_files})
 else ()

@@ -1,13 +1,13 @@
 #include <ui/CocosGUI.h>
-#include "Level1Scene.h"
+#include "GameScene.h"
 #include "FinishScene.h"
 #include "math.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
 
-Scene *Level1Scene::createScene() {
-    return Level1Scene::create();
+Scene *GameScene::createScene() {
+    return GameScene::create();
 }
 
 // Print useful error message instead of segfaulting when files are not there.
@@ -17,7 +17,7 @@ static void problemLoading(const char *filename) {
 }
 
 // on "init" you need to initialize your instance
-bool Level1Scene::init() {
+bool GameScene::init() {
     if (!Scene::init()) {
         return false;
     }
@@ -39,33 +39,33 @@ bool Level1Scene::init() {
     auto dispatcher = Director::getInstance()->getEventDispatcher();
     auto myListener = EventListenerTouchOneByOne::create();
     myListener->setSwallowTouches(true);
-    myListener->onTouchBegan = std::bind(&Level1Scene::onTouchBegan, this, std::placeholders::_1,
+    myListener->onTouchBegan = std::bind(&GameScene::onTouchBegan, this, std::placeholders::_1,
                                          std::placeholders::_2);
-    myListener->onTouchEnded = std::bind(&Level1Scene::onTouchEnded, this, std::placeholders::_1,
+    myListener->onTouchEnded = std::bind(&GameScene::onTouchEnded, this, std::placeholders::_1,
                                          std::placeholders::_2);
     dispatcher->addEventListenerWithSceneGraphPriority(myListener, this);
-    this->schedule(SEL_SCHEDULE(&Level1Scene::running), 0.01f, kRepeatForever, 0);
+    this->schedule(SEL_SCHEDULE(&GameScene::running), 0.01f, kRepeatForever, 0);
 
     return true;
 }
 
-bool Level1Scene::onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
+bool GameScene::onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
     backGroundLayer->changeColor();
     mainLayer->hookAction();
     return true;
 }
 
-bool Level1Scene::onTouchEnded(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
+bool GameScene::onTouchEnded(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) {
 //    layerMutiplex->switchTo(layerIdx % 2);
 //    layerIdx++;
     return true;
 }
 
-void Level1Scene::menuCloseCallback(Ref *pSender) {
+void GameScene::menuCloseCallback(Ref *pSender) {
     auto scene = FinishScene::createScene();
     Director::getInstance()->replaceScene(TransitionPageTurn::create(0.5, scene, true));
 }
 
-void Level1Scene::running(float dt) {
+void GameScene::running(float dt) {
     mainLayer->swing(0);
 }

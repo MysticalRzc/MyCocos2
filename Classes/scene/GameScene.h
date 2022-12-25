@@ -31,9 +31,9 @@
 
 USING_NS_CC;
 
-class Level1Scene : public cocos2d::Scene {
+class GameScene : public cocos2d::Scene {
 public:
-    CREATE_FUNC(Level1Scene);
+    CREATE_FUNC(GameScene);
 
     static cocos2d::Scene *createScene();
 

@@ -3,6 +3,7 @@
 //
 #include "cocos2d.h"
 #include "../utils/DrawUtils.h"
+#include "../sprite/CatchSprite.h"
 
 USING_NS_CC;
 
@@ -15,9 +16,11 @@ public :
 
     int hookStatus = 0;
     int ropeLength = 0;
+    int ropeMaxLength = 700;
     int rotation = 0;
     int swingSpeed = 1;
-    Vec2 hookOrigin = Vec2(0,0);
+    int level = 1;
+    Vec2 hookOrigin = Vec2(0, 0);
 
     cocos2d::Sprite *hook = nullptr;
     DrawUtils *draw = nullptr;
@@ -25,4 +28,6 @@ public :
     void swing(float dt);
 
     void hookAction();
+
+    void levelLoader();
 };

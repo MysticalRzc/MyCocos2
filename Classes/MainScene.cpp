@@ -23,7 +23,7 @@
  ****************************************************************************/
 
 #include "MainScene.h"
-#include "scene/Level1Scene.h"
+#include "scene/GameScene.h"
 
 
 USING_NS_CC;
@@ -75,12 +75,12 @@ bool MainScene::init() {
 
 
 void MainScene::menuCloseCallback(Ref *pSender) {
-    auto scene = Level1Scene::createScene();
+    auto scene = GameScene::createScene();
     Director::getInstance()->replaceScene(scene);
 }
 
 void MainScene::entranceCallback(Ref *pSender) {
-    auto scene = Level1Scene::createScene();
+    auto scene = GameScene::createScene();
     Director::getInstance()->replaceScene(scene);
 }
 
