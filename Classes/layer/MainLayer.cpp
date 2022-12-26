@@ -74,12 +74,17 @@ void MainLayer::hookAction() {
 }
 
 void MainLayer::levelLoader() {
-    auto gold = CatchSprite::create();
-    gold->initWithFile("img/gold_b.png");
-    gold->setPosition(Vec2(300, 100));
-    auto gold2 = Sprite::create("img/stone.png");
-    gold2->setPosition(Vec2(800, 200));
-    this->addChild(gold, 2);
-    this->addChild(gold2, 3);
-}
 
+    std::string name[] = {"gold_b.png", "gold_b.png", "stone.png", "stone.png", "stone.png", "stone.png",
+                          "random_pack.png"};
+    int x[] = {554, 337, 783, 47, 62, 840, 446};
+    int y[] = {511, 546, 139, 146, 575, 599, 311};
+
+    for (int i = 0; i < 7; i++) {
+        auto gold = CatchSprite::create();
+        auto fileName = "img/" + name[i];
+        gold->initWithFile(fileName);
+        gold->setPosition(Vec2(x[i], y[i]));
+        this->addChild(gold, 2);
+    }
+}
