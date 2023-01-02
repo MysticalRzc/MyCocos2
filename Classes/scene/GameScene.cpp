@@ -68,4 +68,5 @@ void GameScene::menuCloseCallback(Ref *pSender) {
 
 void GameScene::running(float dt) {
     mainLayer->swing(0);
+//    mainLayer->cacheTest(0);
 }

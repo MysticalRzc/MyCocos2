@@ -17,11 +17,14 @@ bool MainLayer::init() {
 
     auto mainBgd = Sprite::create("img/mainBgd.png");
     mainBgd->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+    mainBgd->setContentSize(cocos2d::Size(1024, 768));
 
     //添加挖矿老人
-    auto goldMan = Sprite::create("img/goldMan.png");
-    goldMan->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 100));
-    hookOrigin = Vec2(35, 28);
+    goldMan = Sprite::create("img/goldMan.png");
+    goldMan->setPosition(Vec2(origin.x + visibleSize.width / 2 - goldMan->getContentSize().width / 2,
+                              origin.y + visibleSize.height - 118));
+    goldMan->setAnchorPoint(Vec2(0, 0));
+    hookOrigin = Vec2(32, 25);
     hook = Sprite::create("img/hook.png");
     hook->setPosition(hookOrigin);
     hook->setRotation(rotation);
@@ -39,10 +42,15 @@ bool MainLayer::init() {
     return true;
 }
 
+void MainLayer::cacheTest(float dt) {
+}
+
+
 void MainLayer::swing(float df) {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto visibleSize = Director::getInstance()->getVisibleSize();
     draw->drawLineR(hookOrigin, (rotation + 180) * PI_DIV_180, ropeLength);
+
     if (hookStatus == 0) {
         rotation += swingSpeed;
         if (abs(rotation) > 80) {
@@ -51,12 +59,49 @@ void MainLayer::swing(float df) {
         hook->setRotation(rotation);
     } else if (hookStatus == 1) {
         if (ropeLength > ropeMaxLength) {
-            hookStatus = 2;
+            hookStatus = 3;
+        } else if (goldList != nullptr) {
+            Vec2 hp = hook->getPosition();
+            Vec2 hpn = Vec2(hp.x + goldMan->getPositionX(), hp.y + goldMan->getPositionY());
+            for (int i = 0; i < cacheSize; i++) {
+                if (abs(hpn.x - goldList[i]->getPositionX()) < goldList[i]->getContentSize().width / 2 &&
+                    abs(hpn.y - goldList[i]->getPositionY()) < goldList[i]->getContentSize().height / 2) {
+                    cacheIdx = i;
+                    hookStatus = 2;
+                    return;
+                }
+            }
         }
         auto angle = rotation * PI_DIV_180;
-        ropeLength += 4;
+        ropeLength += 5;
         hook->setPosition(Vec2(hookOrigin.x - sin(angle) * ropeLength, hookOrigin.y - cos(angle) * ropeLength));
     } else if (hookStatus == 2) {
+        Vec2 hp = hook->getPosition();
+        Vec2 gp = goldMan->getPosition();
+        Vec2 hpn = Vec2(hp.x + gp.x, hp.y + gp.y);
+        Size hs = hook->getContentSize();
+        Size gs = goldList[cacheIdx]->getContentSize();
+        auto angle = rotation * PI_DIV_180;
+        int offset = 20;
+
+        goldList[cacheIdx]->setPosition(Vec2(hpn.x - sin(angle) * (hs.height + gs.height / 2 - offset),
+                                             hpn.y - cos(angle) * (hs.height + gs.width / 2 - offset)));
+        if (ropeLength < 10) {
+            if (cacheIdx != -1) {
+                goldList[cacheIdx]->removeFromParent();
+                for (int i = cacheIdx; i < cacheSize; i++) {
+                    if (i + 1 < cacheSize) {
+                        goldList[i] = goldList[i + 1];
+                    }
+                }
+                cacheSize--;
+            }
+            hookStatus = 0;
+            hook->setPosition(hookOrigin);
+        }
+        ropeLength -= 1;
+        hook->setPosition(Vec2(hookOrigin.x - sin(angle) * ropeLength, hookOrigin.y - cos(angle) * ropeLength));
+    } else if (hookStatus == 3) {
         if (ropeLength < 10) {
             hookStatus = 0;
             hook->setPosition(hookOrigin);
@@ -75,16 +120,18 @@ void MainLayer::hookAction() {
 
 void MainLayer::levelLoader() {
 
-    std::string name[] = {"gold_b.png", "gold_b.png", "stone.png", "stone.png", "stone.png", "stone.png",
-                          "random_pack.png"};
-    int x[] = {554, 337, 783, 47, 62, 840, 446};
-    int y[] = {511, 546, 139, 146, 575, 599, 311};
+    std::string name[] = {"gold_b.png", "gold_b.png", "gold_b.png", "gold_b.png", "random_pack.png"};
+    cacheSize = 6;
+    x = new int[cacheSize]{817, 20, 817, 8, 450};
+    y = new int[cacheSize]{565, 136, 121, 566, 111};
 
-    for (int i = 0; i < 7; i++) {
-        auto gold = CatchSprite::create();
+    for (int i = 0; i < cacheSize; i++) {
+        goldList[i] = CatchSprite::create();
         auto fileName = "img/" + name[i];
-        gold->initWithFile(fileName);
-        gold->setPosition(Vec2(x[i], y[i]));
-        this->addChild(gold, 2);
+        goldList[i]->initWithFile(fileName);
+        goldList[i]->setPosition(
+                Vec2(x[i] + goldList[i]->getContentSize().width / 2, y[i] - goldList[i]->getContentSize().height / 2));
+        this->addChild(goldList[i], 2);
     }
 }
+
