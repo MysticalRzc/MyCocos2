@@ -1,9 +1,12 @@
 //
 // Created by Administrator on 2022/12/10.
 //
-
 #include "MainLayer.h"
+#include <fstream>
+#include <iostream>
+#include <string>
 
+using namespace std;
 USING_NS_CC;
 
 #define PI (3.14159265358979323846)
@@ -39,7 +42,26 @@ bool MainLayer::init() {
     levelLoader();
     this->addChild(mainBgd, 0);
     this->addChild(goldMan, 1);
+    readFile();
     return true;
+}
+
+void MainLayer::readFile() {
+
+    char data[100];
+    ifstream infile;
+    infile.open(R"(res\config.map)");
+    cout << "Reading from the file" << endl;
+    infile >> data;
+
+    // 在屏幕上写入数据
+    cout << data << endl;
+
+    // 再次从文件读取数据，并显示它
+    infile >> data;
+    cout << data << endl;
+    // 关闭打开的文件
+    infile.close();
 }
 
 void MainLayer::cacheTest(float dt) {
@@ -52,6 +74,7 @@ void MainLayer::swing(float df) {
     draw->drawLineR(hookOrigin, (rotation + 180) * PI_DIV_180, ropeLength);
 
     if (hookStatus == 0) {
+        goldMan->stopAction(animate);
         rotation += swingSpeed;
         if (abs(rotation) > 80) {
             swingSpeed = -swingSpeed;
@@ -68,6 +91,23 @@ void MainLayer::swing(float df) {
                     abs(hpn.y - goldList[i]->getPositionY()) < goldList[i]->getContentSize().height / 2) {
                     cacheIdx = i;
                     hookStatus = 2;
+                    Animation *animation = Animation::create();
+
+                    //getContentSize 得到精灵的宽和高。
+                    Rect rect = Rect(0, 0, goldMan->getContentSize().width, goldMan->getContentSize().height);
+                    //第二个参数指定截取第一个参数指定的图片的一部分。
+                    SpriteFrame *frame = SpriteFrame::create("img/goldMan.png", rect);//添加精灵帧
+                    animation->addSpriteFrame(frame);
+                    SpriteFrame *frames = SpriteFrame::create("img/goldMan2.png", rect);//添加精灵帧
+                    animation->addSpriteFrame(frames);
+                    //设置帧间隔时间，此参数必须设置，无此参数支画不会播放。
+                    animation->setDelayPerUnit(0.4f);
+                    //动画播放完毕后，帧序是否重设为默认第一帧。
+                    animation->setRestoreOriginalFrame(false);
+                    //循环次数。
+                    animation->setLoops(-1);
+                    animate = Animate::create(animation);
+                    goldMan->runAction(animate);
                     return;
                 }
             }
@@ -76,7 +116,7 @@ void MainLayer::swing(float df) {
         ropeLength += 5;
         hook->setPosition(Vec2(hookOrigin.x - sin(angle) * ropeLength, hookOrigin.y - cos(angle) * ropeLength));
     } else if (hookStatus == 2) {
-        Vec2 hp = hook->getPosition();
+         Vec2 hp = hook->getPosition();
         Vec2 gp = goldMan->getPosition();
         Vec2 hpn = Vec2(hp.x + gp.x, hp.y + gp.y);
         Size hs = hook->getContentSize();
@@ -87,6 +127,7 @@ void MainLayer::swing(float df) {
         goldList[cacheIdx]->setPosition(Vec2(hpn.x - sin(angle) * (hs.height + gs.height / 2 - offset),
                                              hpn.y - cos(angle) * (hs.height + gs.width / 2 - offset)));
         if (ropeLength < 10) {
+            goldMan->stopAction(animate);
             if (cacheIdx != -1) {
                 goldList[cacheIdx]->removeFromParent();
                 for (int i = cacheIdx; i < cacheSize; i++) {
@@ -105,6 +146,7 @@ void MainLayer::swing(float df) {
         if (ropeLength < 10) {
             hookStatus = 0;
             hook->setPosition(hookOrigin);
+            goldMan->stopAction(animate);
         }
         auto angle = rotation * PI_DIV_180;
         ropeLength -= 10;
@@ -120,10 +162,15 @@ void MainLayer::hookAction() {
 
 void MainLayer::levelLoader() {
 
-    std::string name[] = {"gold_b.png", "gold_b.png", "gold_b.png", "gold_b.png", "random_pack.png"};
-    cacheSize = 6;
-    x = new int[cacheSize]{817, 20, 817, 8, 450};
-    y = new int[cacheSize]{565, 136, 121, 566, 111};
+//    std::string name[] = {"gold_b.png", "gold_b.png", "gold_b.png", "gold_b.png", "random_pack.png"};
+    cacheSize = 10;
+//    x = new int[cacheSize]{817, 20, 817, 8, 450};
+//    y = new int[cacheSize]{565, 136, 121, 566, 111};
+    std::string name[] = {"gold_b.png", "gold_b.png", "gold_s.png", "gold_s.png", "gold_s.png", "stone.png",
+                          "random_pack.png", "gold_b.png", "random_pack.png", "gold_s.png"};
+    int x[]{713, 11, 713, 679, 443, 84, 536, 9, 234, 306, -5};
+    int y[]{193, 193, 265, 527, 299, 520, 279, 138, 341, 573};
+
 
     for (int i = 0; i < cacheSize; i++) {
         goldList[i] = CatchSprite::create();

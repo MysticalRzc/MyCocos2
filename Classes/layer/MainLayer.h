@@ -29,6 +29,7 @@ public :
 
     cocos2d::Sprite *hook = nullptr;
     cocos2d::Sprite *goldMan = nullptr;
+    FiniteTimeAction *animate = nullptr;
     DrawUtils *draw = nullptr;
     CatchSprite *goldList[10];
 
@@ -42,4 +43,6 @@ public :
     void hookAction();
 
     void levelLoader();
+
+    void readFile();
 };
